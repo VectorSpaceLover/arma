@@ -48,6 +48,21 @@
                         </a>
                     </a>
                 </li>
+ 
+                <li class="nav-item">
+                    @if($active ===2)
+                    <a href="/produtos" class="nav-link active">
+                        @else
+                        <a href="/produtos" class="nav-link">
+                            @endif
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Produtos
+                                <span class="right badge badge-danger"></span>
+                            </p>
+                        </a>
+                </li>
+
                 <!-- HNJ -->
                 <li class="nav-item">
                     @if($active ===3)
@@ -72,6 +87,20 @@
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Clientes
+                                <span class="right badge badge-danger"></span>
+                            </p>
+                        </a>
+                </li>
+
+                <li class="nav-item">
+                    @if($active ===5)
+                    <a href="/produtos" class="nav-link active">
+                        @else
+                        <a href="/produtos" class="nav-link">
+                            @endif
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Produtos 
                                 <span class="right badge badge-danger"></span>
                             </p>
                         </a>

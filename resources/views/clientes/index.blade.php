@@ -40,29 +40,43 @@ $active = 4;
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>apelido</th>
-                        <th>nome</th>
-                        <th>bi_dire_passporte</th>
-                        <th>nacionalidade</th>
-                        <th>residencia</th>
-                        <th>casa_nr</th>
-                        <th>endereco</th>
-                        <th>provincia_id</th>
-                        <th>telefone</th>
-                        <th>naturalidade</th>
-                        <th>validade</th>
-                        <th>profissao</th>
-                        <th>user_id</th>
-                        <th>data_created</th>
-                        <th>tipoCliente_id</th>
-                        <th>obs</th>
+                        <th>Apelido</th>
+                        <th>Nome</th>
+                        <th>Bi Dire Passporte</th>
+                        <th>Nacionalidade</th>
+                        <th>Residencia</th>
+                        <th>Casa Nr</th>
+                        <th>Endereco</th>
+                        <th>Provincia ID</th>
+                        <th>Telefone</th>
+                        <th>Naturalidade</th>
+                        <th>Validade</th>
+                        <th>Profissao</th>
+                        <th>User ID</th>
+                        <th>Data Created</th>
+                        <th>TipoCliente ID</th>
+                        <th>Obs</th>
                         <th></th>
                     </tr>
                 </thead>
                   <tbody>
                     @foreach($clientes as $cliente)
                     <tr>
+                        <td>{{$cliente->apelido}}</td>
                         <td>{{$cliente->nome}}</td>
+                        <td>{{$cliente->bi_dire_passporte}}</td>
+                        <td>{{$cliente->nacionalidade}}</td>
+                        <td>{{$cliente->residencia}}</td>
+                        <td>{{$cliente->casa_nr}}</td>
+                        <td>{{$cliente->endereco}}</td>
+                        <td>{{$cliente->provincia_id}}</td>
+                        <td>{{$cliente->telefone}}</td>
+                        <td>{{$cliente->naturalidade}}</td>
+                        <td>{{$cliente->validade}}</td>
+                        <td>{{$cliente->profissao}}</td>
+                        <td>{{$cliente->user_id}}</td>
+                        <td>{{$cliente->data_created}}</td>
+                        <td>{{$cliente->tipoCliente_id}}</td>
                         <td>{{$cliente->obs}}</td>
                       
                          <td class="text-center">
@@ -70,7 +84,7 @@ $active = 4;
                                 <i class="fa fa-edit"></i>
                             </a>
                             &nbsp;&nbsp;&nbsp;  
-                            <a href=""  data-target="#moda-categoria-{{$categoriaLinha->id}}" data-toggle="modal" >
+                            <a href=""  data-target="#moda-cliente-{{$cliente->id}}" data-toggle="modal" >
                                 <i class="fa fa-trash-alt text-danger"></i>
                             </a>
 
@@ -79,8 +93,8 @@ $active = 4;
                     </tr>
                     
                               <!-- MODAL DE DELETAR ROTA-->                  
-                <div class="modal fade" id="moda-categoria-{{$categoriaLinha->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <form id="idrotas" method="POST" action="/categorias/{{$categoriaLinha->id}}">
+                <div class="modal fade" id="moda-cliente-{{$cliente->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <form id="idrotas" method="POST" action="/clientes/{{$cliente->id}}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-dialog">

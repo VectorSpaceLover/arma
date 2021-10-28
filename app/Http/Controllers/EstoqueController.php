@@ -27,9 +27,28 @@ class EstoqueController extends Controller {
         return view('estoque.add', compact('categoria'));
     }
 
-    public function add() {
+    public function add(Request $request) {
+
+        // $validated = $request->validate([
+        //     'marca' => 'string|max:50',
+        //     'nome' => 'required|string|max:50',
+        //     'municoes' => 'string|max:50',
+        //     'calibre' => 'string|max:50',
+        //     'carregamento' => 'string|max:50',
+        //     'importacao' => 'string|max:50',
+        //     'modelo' => 'string|max:50',
+        //     'classificacao' => 'string|max:50',
+        //     'tiros' => 'string|max:50',
+        //     'percursao' => 'string|max:50',
+        //     'comprimentoCano' => 'string|max:50',
+        //     'mecanismo' => 'string|max:50',
+        //     'categoria' => 'required|string|max:50',
+        //     'preco' => 'required|string|max:50',
+        //     'quantidade_stoque' => 'required|string|max:50',
+        // ]);
+
         $categoria = \App\Models\Categoria::where('estado', 1)->get();
-        return view('estoque.add', compact('categoria'));
+        return view('estoque.index', compact('categoria'));
     }
 
     /**

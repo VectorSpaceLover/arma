@@ -82,6 +82,18 @@
       "autoWidth": false,
       "responsive": true,
     });
+
+    
+    $('.dropdown-toggle').dropdown();
+
+    $(document).on('click', 'body', function(e) {
+      e.stopPropagation();
+      $('.dropdown-menu').removeClass('show');
+    });
+    $('.dropdown-toggle').click(function(e) {
+      $('.dropdown-menu').removeClass('show');
+      $(this).next().addClass('show');
+    })
   });
 </script>
 </body>

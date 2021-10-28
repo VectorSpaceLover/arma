@@ -29,6 +29,11 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets//plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+  <style>
+    .content-wrapper {
+      margin-left: 0px !important;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -37,62 +42,104 @@
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
   </div>
-
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Home</a>
-      </li>
-     
-    </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
-      <!-- Messages Dropdown Menu -->
-      <!-- Notifications Dropdown Menu -->
-<!--      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">3</span>
-          
-        </div>
-      </li>-->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-    
-    </ul>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Sistema de Gestão</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          @if($active == 1)
+            <li class="nav-item active">
+          @else
+            <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          @if($active == 2)
+            <li class="nav-item active">
+          @else
+            <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="/productos">Productos</a>
+          </li>
+          @if($active == 3)
+            <li class="nav-item active">
+          @else
+            <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="/users">Utilizador</a>
+          </li>
+          @if($active == 4)
+            <li class="nav-item active">
+          @else
+            <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="/clientes">Clientes</a>
+          </li>
+          @if($active == 5)
+            <li class="nav-item active">
+          @else
+            <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="/estoque">Estoque</a>
+          </li>
+          @if($active == 6)
+            <li class="nav-item active dropdown">
+          @else
+            <li class="nav-item  dropdown">
+          @endif
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Faturacao</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/faturacao">Faturacao</a></li>
+              <li><a class="dropdown-item" href="/cotacao">Cotacao</a></li>
+              <li><a class="dropdown-item" href="/guia">Guia de entrega</a></li>
+            </ul>
+          </li>
+          @if($active == 7)
+            <li class="nav-item active">
+          @else
+            <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="/despesas">Despesas</a>
+          </li>
+          @if($active == 8)
+            <li class="nav-item active">
+          @else
+            <li class="nav-item ">
+          @endif
+            <a class="nav-link" href="/licenciamento">Licenciamento</a>
+          </li>
+          @if($active == 9)
+            <li class="nav-item active dropdown">
+          @else
+            <li class="nav-item  dropdown">
+          @endif
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Create menu Configuracao</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/gest">Guest</a></li>
+              <li><a class="dropdown-item" href="/tipos/cliente">Tipo de cliente</a></li>
+              <li><a class="dropdown-item" href="/tipos/despesas">Tipo de despesas</a></li>
+              <li><a class="dropdown-item" href="/tipos/productos">Tipo de productos</a></li>
+              <li><a class="dropdown-item" href="/empresa">Empresa</a></li>
+            </ul>
+          </li>
+          @if($active == 10)
+            <li class="nav-item active dropdown">
+          @else
+            <li class="nav-item  dropdown">
+          @endif
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Configuracao</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="categorias">Categoria</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- <form class="d-flex" style = 'position:absolute; right:10px; margin-bottom: 0px'>
+          <input class="form-control me-2" type="text" placeholder="Search">
+          <button class="btn btn-primary" type="button">Search</button>
+        </form> -->
+      </div>
+    </div>
   </nav>
-  <!-- /.navbar -->

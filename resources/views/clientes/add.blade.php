@@ -1,5 +1,5 @@
 <?php
-$active = 2;
+$active = 4;
 ?>
 @extends('base')
 @section('content')
@@ -26,7 +26,7 @@ $active = 2;
         <!-- /.card-header -->
         <div class="card-body">
 
-            <form method="POST" action="/clientes" class="">
+            <form method="POST" action="/clientes/add" class="">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-12">

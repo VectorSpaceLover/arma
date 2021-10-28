@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/categorias', \App\Http\Controllers\CategoriaController::class);
+Route::resource('/productos', \App\Http\Controllers\ProdutosController::class);
 //Adonis
 Route::resource('/users', \App\Http\Controllers\UsersController::class);
 
