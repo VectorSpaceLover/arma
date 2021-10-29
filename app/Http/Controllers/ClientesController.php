@@ -7,46 +7,46 @@ use Illuminate\Http\Request;
 
 class ClientesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __construct() {
         $this->middleware('auth');
     }
 
     public function index() {
-        $clientes = Clientes::where('estado', 1)->get();
+        $clientes = Clientes::all();
         return view('clientes.index', compact('clientes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create() {
         return view('clientes.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request) {
-
 
         $validated = $request->validate([
             'nome' => 'required|string|min:3|max:50',
         ]);
 
         $clientes = new Clientes();
+        $clientes->apelido = $request->apelido;
         $clientes->nome = $request->nome;
+        $clientes->bi_dire_passporte = $request->bi_dire_passporte;
+        $clientes->nuit = $request->nuit;
+        $clientes->nacionalidade = $request->nacionalidade;
+        $clientes->residencia = $request->residencia;
+        $clientes->casa_nr = $request->casa_nr;
+        $clientes->endereco = $request->endereco;
+        $clientes->provincia_id = $request->provincia_id;
+        $clientes->telefone = $request->telefone;
+        $clientes->naturalidade = $request->naturalidade;
+        $clientes->estado_civil_id = $request->estado_civil_id;
+        $clientes->validade = $request->validade;
+        $clientes->profissao = $request->profissao;
+        $clientes->user_id = $request->user_id;
+        $clientes->data_created = $request->data_created;
+        $clientes->estado = $request->estado;
+        $clientes->tipoCliente_id = $request->tipoCliente_id;
         $clientes->obs = $request->obs;
-        $clientes->estado = 1;
+
         $clientes->save();
         if ($clientes->save()) {
             return redirect('/clientes')->with(['mensagem' => 'Adicionado com sucesso']);
@@ -54,59 +54,49 @@ class ClientesController extends Controller
             return redirect('/clientes')->with(['mensagem' => 'Falha ao adicionar']);
         }
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\cliente  $cliente
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Clientes $cliente) {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\cliente  $cliente
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Clientes $cliente) {
         return view('clientes.edit', compact('cliente'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\cliente  $cliente
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Clientes $cliente) {
         $validated = $request->validate([
             'nome' => 'required|string|min:3|max:50',
         ]);
-  
-        $clientes->nome = $request->nome;
-        $clientes->obs = $request->obs;
-        $clientes->save();
-        if ($clientes->save()) {
+
+        $cliente->apelido = $request->apelido;
+        $cliente->nome = $request->nome;
+        $cliente->bi_dire_passporte = $request->bi_dire_passporte;
+        $cliente->nuit = $request->nuit;
+        $cliente->nacionalidade = $request->nacionalidade;
+        $cliente->residencia = $request->residencia;
+        $cliente->casa_nr = $request->casa_nr;
+        $cliente->endereco = $request->endereco;
+        $cliente->provincia_id = $request->provincia_id;
+        $cliente->telefone = $request->telefone;
+        $cliente->naturalidade = $request->naturalidade;
+        $cliente->estado_civil_id = $request->estado_civil_id;
+        $cliente->validade = $request->validade;
+        $cliente->profissao = $request->profissao;
+        $cliente->user_id = $request->user_id;
+        $cliente->data_created = $request->data_created;
+        $cliente->estado = $request->estado;
+        $cliente->tipoCliente_id = $request->tipoCliente_id;
+        $cliente->obs = $request->obs;
+        $cliente->save();
+        if ($cliente->save()) {
             return redirect('/clientes')->with(['mensagem' => 'cliente actualizado com sucesso']);
         } else {
             return redirect('/clientes')->with(['mensagem' => 'Falha ao Actualizar a cliente']);
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\cliente  $cliente
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Clientes $cliente) {
-        $clientes->estado = 0;
-        $clientes->save();
-        if ($clientes->save()) {
+        if (Clientes::where('id', $cliente->id)->delete()) {
             return redirect('/clientes')->with(['mensagem' => 'cliente deletado com sucesso']);
         } else {
             return redirect('/clientes')->with(['mensagem' => 'Falha ao Deletar cliente']);

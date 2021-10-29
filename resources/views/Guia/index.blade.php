@@ -1,5 +1,5 @@
 <?php
-$active = 10;
+$active = 6;
 ?>
 @extends('base')
 @section('content')

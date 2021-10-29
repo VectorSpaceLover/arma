@@ -37,18 +37,17 @@ class CotacaoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-
-
-        $validated = $request->validate([
-            'nome' => 'required|string|min:3|max:50',
-        ]);
-
-        $cotacaos = new Cotacao();
-        $cotacaos->nome = $request->nome;
-        $cotacaos->obs = $request->obs;
-        $cotacaos->estado = 1;
-        $cotacaos->save();
-        if ($cotacaos->save()) {
+        $cotacao = new Cotacao();
+        $cotacao->cod = $request->cod;
+        $cotacao->cliente_id = $request->cliente_id;
+        $cotacao->nuit = $request->nuit;
+        $cotacao->produto_id = $request->produto_id;
+        $cotacao->Iva = $request->Iva;
+        $cotacao->disconto = $request->disconto;
+        $cotacao->entregue = $request->entregue;
+        $cotacao->user_id = $request->user_id;
+        $cotacao->save();
+        if ($cotacao->save()) {
             return redirect('/cotacao')->with(['mensagem' => 'Adicionado com sucesso']);
         } else {
             return redirect('/cotacao')->with(['mensagem' => 'Falha ao adicionar']);
@@ -71,8 +70,8 @@ class CotacaoController extends Controller
      * @param  \App\Models\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cotacao $cliente) {
-        return view('cotacaos.edit', compact('cliente'));
+    public function edit(Cotacao $cotacao) {
+        return view('cotacao.edit', compact('cotacao'));
     }
 
     /**
@@ -82,15 +81,17 @@ class CotacaoController extends Controller
      * @param  \App\Models\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cotacao $cliente) {
-        $validated = $request->validate([
-            'nome' => 'required|string|min:3|max:50',
-        ]);
-  
-        $cotacaos->nome = $request->nome;
-        $cotacaos->obs = $request->obs;
-        $cotacaos->save();
-        if ($cotacaos->save()) {
+    public function update(Request $request, Cotacao $cotacao) {
+        $cotacao->cod = $request->cod;
+        $cotacao->cliente_id = $request->cliente_id;
+        $cotacao->nuit = $request->nuit;
+        $cotacao->produto_id = $request->produto_id;
+        $cotacao->Iva = $request->Iva;
+        $cotacao->disconto = $request->disconto;
+        $cotacao->entregue = $request->entregue;
+        $cotacao->user_id = $request->user_id;
+        $cotacao->save();
+        if ($cotacao->save()) {
             return redirect('/cotacao')->with(['mensagem' => 'cliente actualizado com sucesso']);
         } else {
             return redirect('/cotacao')->with(['mensagem' => 'Falha ao Actualizar a cliente']);
@@ -103,10 +104,10 @@ class CotacaoController extends Controller
      * @param  \App\Models\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cotacao $cliente) {
-        $cotacaos->estado = 0;
-        $cotacaos->save();
-        if ($cotacaos->save()) {
+    public function destroy(Cotacao $cotacao) {
+        $cotacao->estado = 0;
+        $cotacao->save();
+        if ($cotacao->save()) {
             return redirect('/cotacao')->with(['mensagem' => 'cliente deletado com sucesso']);
         } else {
             return redirect('/cotacao')->with(['mensagem' => 'Falha ao Deletar cliente']);

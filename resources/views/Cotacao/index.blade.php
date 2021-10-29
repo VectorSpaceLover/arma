@@ -1,5 +1,5 @@
 <?php
-$active = 9;
+$active = 6;
 ?>
 @extends('base')
 @section('content')
@@ -31,7 +31,7 @@ $active = 9;
         </div>
         <!-- /.card-header -->
 <div class="text-right" style="margin:10px 20px 0px 20px;">
-            <a href="/clientes/create" class="btn btn-primary col-sm-5 col-md-2" style="font-size: 12pt;">
+            <a href="/cotacao/create" class="btn btn-primary col-sm-5 col-md-2" style="font-size: 12pt;">
                 <i class="fa fa-plus" aria-hidden></i> 
                 Adiconar</a>
         </div>
@@ -48,23 +48,31 @@ $active = 9;
                         <th>Disconto</th>
                         <th>entregue</th>
                         <th>User ID</th>
-                        <th>Created AT</th>
-                        <th>Update AT</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
                         <th></th>
                     </tr>
                 </thead>
                   <tbody>
                     @foreach($cotacaos as $cotacao)
                     <tr>
-                        <td>{{$cotacao->nome}}</td>
-                        <td>{{$cotacao->obs}}</td>
+                        <td>{{$cotacao->cod}}</td>
+                        <td>{{$cotacao->cliente_id}}</td>
+                        <td>{{$cotacao->nuit}}</td>
+                        <td>{{$cotacao->produto_id}}</td>
+                        <td>{{$cotacao->Iva}}</td>
+                        <td>{{$cotacao->disconto}}</td>
+                        <td>{{$cotacao->entregue}}</td>
+                        <td>{{$cotacao->user_id}}</td>
+                        <td>{{$cotacao->created_at}}</td>
+                        <td>{{$cotacao->updated_at}}</td>
                       
                          <td class="text-center">
                             <a href="cotacao/{{$cotacao->id}}/edit " >
                                 <i class="fa fa-edit"></i>
                             </a>
                             &nbsp;&nbsp;&nbsp;  
-                            <a href=""  data-target="#moda-cotacao-{{$cotacao->id}}" data-toggle="modal" >
+                            <a href=""  data-target="#modal-cotacao-{{$cotacao->id}}" data-toggle="modal" >
                                 <i class="fa fa-trash-alt text-danger"></i>
                             </a>
 

@@ -79,12 +79,12 @@ $active = 4;
                         <td>{{$cliente->tipoCliente_id}}</td>
                         <td>{{$cliente->obs}}</td>
                       
-                         <td class="text-center">
-                            <a href="clientes/{{$cliente->id}}/edit " >
+                        <td class="text-center">
+                            <a href="clientes/{{$cliente->id}}/edit" >
                                 <i class="fa fa-edit"></i>
                             </a>
                             &nbsp;&nbsp;&nbsp;  
-                            <a href=""  data-target="#moda-cliente-{{$cliente->id}}" data-toggle="modal" >
+                            <a href=""  data-target="#modal-cliente-{{$cliente->id}}" data-toggle="modal" >
                                 <i class="fa fa-trash-alt text-danger"></i>
                             </a>
 
@@ -93,14 +93,14 @@ $active = 4;
                     </tr>
                     
                               <!-- MODAL DE DELETAR ROTA-->                  
-                <div class="modal fade" id="moda-cliente-{{$cliente->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modal-cliente-{{$cliente->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <form id="idrotas" method="POST" action="/clientes/{{$cliente->id}}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-danger" style="font-family:sans-serif;"  id="exampleModalLabel">Deseja deletar o clientes {{$cliente->nome}}?</h5>
+                                    <h5 class="modal-title text-danger" style="font-family:sans-serif;"  id="exampleModalLabel">Deseja deletar o categoria {{$cliente->nome}}?</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>

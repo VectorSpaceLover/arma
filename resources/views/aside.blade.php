@@ -288,9 +288,48 @@
                       </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    @if($active ===21)
+                    <a href="/ajuda" class="nav-link active">
+                        @else
+                        <a href="/ajuda" class="nav-link">
+                            @endif
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Ajuda  
+                                <span class="right badge badge-danger"></span>
+                            </p>
+                        </a>
+                </li>
+                <li class="nav-item">
+                    @if($active ===22)
+                    <a href="/relatorios" class="nav-link active">
+                        @else
+                        <a href="/relatorios" class="nav-link">
+                            @endif
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Relatorios  
+                                <span class="right badge badge-danger"></span>
+                            </p>
+                        </a>
+                </li>
+                <li class="nav-item">
+                    @if($active ===23)
+                    <a href="/vendas" class="nav-link active">
+                        @else
+                        <a href="/vendas" class="nav-link">
+                            @endif
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Vendas  
+                                <span class="right badge badge-danger"></span>
+                            </p>
+                        </a>
+                </li>
                 <!-- HNJ -->
                 <li class="nav-item">
-                     @if($active ===21)
+                     @if($active ===23)
                     <a href="" class="nav-link active">
                         @else
                            <a href="" class="nav-link ">
@@ -303,7 +342,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                           @if($active ===22)
+                           @if($active ===24)
                         <a href="/categorias" class="nav-link active" >
                             @else
                              <a href="/categorias" class="nav-link">

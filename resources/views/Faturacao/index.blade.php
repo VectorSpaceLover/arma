@@ -1,5 +1,5 @@
 <?php
-$active = 8;
+$active = 6;
 ?>
 @extends('base')
 @section('content')
@@ -31,7 +31,7 @@ $active = 8;
         </div>
         <!-- /.card-header -->
 <div class="text-right" style="margin:10px 20px 0px 20px;">
-            <a href="/clientes/create" class="btn btn-primary col-sm-5 col-md-2" style="font-size: 12pt;">
+            <a href="/faturacao/create" class="btn btn-primary col-sm-5 col-md-2" style="font-size: 12pt;">
                 <i class="fa fa-plus" aria-hidden></i> 
                 Adiconar</a>
         </div>
@@ -48,38 +48,50 @@ $active = 8;
                         <th>Disconto</th>
                         <th>entregue</th>
                         <th>User ID</th>
-                        <th>Created AT</th>
-                        <th>Update AT</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Pago</th>
                         <th></th>
                     </tr>
                 </thead>
                   <tbody>
-                    @foreach($faturacaos as $faturaco)
+                    @foreach($faturacaos as $faturacao)
                     <tr>
-                        <td>{{$faturaco->nome}}</td>
-                        <td>{{$faturaco->obs}}</td>
+                        <td>{{$faturacao->cod}}</td>
+                        <td>{{$faturacao->cliente_id}}</td>
+                        <td>{{$faturacao->nuit}}</td>
+                        <td>{{$faturacao->produto_id}}</td>
+                        <td>{{$faturacao->Iva}}</td>
+                        <td>{{$faturacao->disconto}}</td>
+                        <td>{{$faturacao->entregue}}</td>
+                        <td>{{$faturacao->user_id}}</td>
+                        <td>{{$faturacao->created_at}}</td>
+                        <td>{{$faturacao->updated_at}}</td>
+                        <td>{{$faturacao->pago}}</td>
                       
-                         <td class="text-center">
-                            <a href="faturaco/{{$faturaco->id}}/edit " >
+                        <td class="text-center">
+                            <a href="faturacao/{{$faturacao->id}}/edit" >
                                 <i class="fa fa-edit"></i>
                             </a>
                             &nbsp;&nbsp;&nbsp;  
-                            <a href=""  data-target="#moda-faturaco-{{$faturaco->id}}" data-toggle="modal" >
+                            <a href=""  data-target="#modal-faturacao-{{$faturacao->id}}" data-toggle="modal" >
                                 <i class="fa fa-trash-alt text-danger"></i>
                             </a>
 
                         </td>
+                        
                          
                     </tr>
                     
-                <div class="modal fade" id="moda-faturaco-{{$faturaco->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <form id="idrotas" method="POST" action="/faturaco/{{$faturaco->id}}">
+                              <!-- MODAL DE DELETAR ROTA-->                  
+                <div class="modal fade" id="modal-faturacao-{{$faturacao->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <form id="idrotas" method="POST" action="/faturacao/{{$faturacao->id}}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-danger" style="font-family:sans-serif;"  id="exampleModalLabel">Deseja deletar o faturacos {{$faturaco->nome}}?</h5>
+                                    <h5 class="modal-title text-danger" style="font-family:sans-serif;"  id="exampleModalLabel">Deseja deletar o faturacao {{$faturacao->id}}?</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -107,17 +119,17 @@ $active = 8;
 @endsection
 
 <!-- 
-@foreach($faturacaos as $faturaco)
+@foreach($faturacaos as $faturacao)
                     <tr>
-                        <td>{{$faturaco->nome}}</td>
-                        <td>{{$faturaco->obs}}</td>
+                        <td>{{$faturacao->nome}}</td>
+                        <td>{{$faturacao->obs}}</td>
                       
                          <td class="text-center">
-                            <a href="faturaco/{{$faturaco->id}}/edit " >
+                            <a href="faturacao/{{$faturacao->id}}/edit " >
                                 <i class="fa fa-edit"></i>
                             </a>
                             &nbsp;&nbsp;&nbsp;  
-                            <a href=""  data-target="#moda-faturaco-{{$faturaco->id}}" data-toggle="modal" >
+                            <a href=""  data-target="#moda-faturacao-{{$faturacao->id}}" data-toggle="modal" >
                                 <i class="fa fa-trash-alt text-danger"></i>
                             </a>
 
@@ -125,14 +137,14 @@ $active = 8;
                          
                     </tr>
                     
-                <div class="modal fade" id="moda-faturaco-{{$faturaco->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <form id="idrotas" method="POST" action="/faturaco/{{$faturaco->id}}">
+                <div class="modal fade" id="moda-faturacao-{{$faturacao->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <form id="idrotas" method="POST" action="/faturacao/{{$faturacao->id}}">
                         @csrf
                         @method('DELETE')
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-danger" style="font-family:sans-serif;"  id="exampleModalLabel">Deseja deletar o faturacos {{$faturaco->nome}}?</h5>
+                                    <h5 class="modal-title text-danger" style="font-family:sans-serif;"  id="exampleModalLabel">Deseja deletar o faturacaos {{$faturacao->nome}}?</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>

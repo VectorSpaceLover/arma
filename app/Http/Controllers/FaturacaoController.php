@@ -39,15 +39,21 @@ class FaturacaoController extends Controller
      */
     public function store(Request $request) {
 
-
-        $validated = $request->validate([
-            'nome' => 'required|string|min:3|max:50',
-        ]);
-
+        // $validated = $request->validate([
+        //     'cod' => 'required|string|min:3|max:50',
+        // ]);
         $faturacaos = new Faturacao();
-        $faturacaos->nome = $request->nome;
-        $faturacaos->obs = $request->obs;
-        $faturacaos->estado = 1;
+        $faturacaos->cod = $request->cod;
+        $faturacaos->cliente_id = $request->cliente_id;
+        $faturacaos->nuit = $request->nuit;
+        $faturacaos->produto_id = $request->produto_id;
+        $faturacaos->Iva = $request->Iva;
+        $faturacaos->disconto = $request->disconto;
+        $faturacaos->entregue = $request->entregue;
+        $faturacaos->user_id = $request->user_id;
+        $faturacaos->pago = $request->pago;
+        // $faturacaos->created_at = "2010-10-08";
+        // $faturacaos->update_at = "2010-12-09";
         $faturacaos->save();
         if ($faturacaos->save()) {
             return redirect('/faturacao')->with(['mensagem' => 'Adicionado com sucesso']);
@@ -72,8 +78,8 @@ class FaturacaoController extends Controller
      * @param  \App\Models\faturacaos  $faturacaos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Faturacao $faturacaos) {
-        return view('faturacao.edit', compact('faturacaos'));
+    public function edit(Faturacao $faturacao) {
+        return view('faturacao.edit', compact('faturacao'));
     }
 
     /**
@@ -84,12 +90,15 @@ class FaturacaoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Faturacao $faturacaos) {
-        $validated = $request->validate([
-            'nome' => 'required|string|min:3|max:50',
-        ]);
-  
-        $faturacaos->nome = $request->nome;
-        $faturacaos->obs = $request->obs;
+        $faturacaos->cod = $request->cod;
+        $faturacaos->cliente_id = $request->cliente_id;
+        $faturacaos->nuit = $request->nuit;
+        $faturacaos->produto_id = $request->produto_id;
+        $faturacaos->Iva = $request->Iva;
+        $faturacaos->disconto = $request->disconto;
+        $faturacaos->entregue = $request->entregue;
+        $faturacaos->user_id = $request->user_id;
+        $faturacaos->pago = $request->pago;
         $faturacaos->save();
         if ($faturacaos->save()) {
             return redirect('/faturacao')->with(['mensagem' => 'faturacaos actualizado com sucesso']);
@@ -98,19 +107,12 @@ class FaturacaoController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\faturacaos  $faturacaos
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Faturacao $faturacaos) {
-        $faturacaos->estado = 0;
-        $faturacaos->save();
-        if ($faturacaos->save()) {
-            return redirect('/faturacao')->with(['mensagem' => 'faturacaos deletado com sucesso']);
+    
+    public function destroy(Faturacao $faturacao) {
+        if (Faturacao::where('id', $faturacao->id)->delete()) {
+            return redirect('/faturacao')->with(['mensagem' => 'faturacao deletado com sucesso']);
         } else {
-            return redirect('/faturacao')->with(['mensagem' => 'Falha ao Deletar faturacaos']);
+            return redirect('/faturacao')->with(['mensagem' => 'Falha ao Deletar faturacao']);
         }
     }
 }
