@@ -26,56 +26,202 @@ $active = 2;
         <!-- /.card-header -->
         <div class="card-body">
 
-            <form method="POST" action="/produtos" class="">
+            <form method="POST" action="/productos" class="">
                 @csrf
-                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="numero">Nome</label>
-                        <input type="text" class="form-control @error('nome') is-invalid @enderror" value="{{ old('nome') }}" required autocomplete="nome" id="numero" name="nome" placeholder="Digita aqui o teu nome">
 
+                <div class="form-row">
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="apelido">Apelido</label>
+                        <input type="text" class="form-control @error('apelido') is-invalid @enderror" value="{{ old('apelido') }}" required autocomplete="apelido" id="apelido" name="apelido" placeholder="">
+                        @error('apelido')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control @error('Nome') is-invalid @enderror" value="{{ old('nome') }}" required autocomplete="nome" id="nome" name="nome" placeholder="">
                         @error('nome')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
-                   <div class="form-group col-md-6">
-                        <label for="numero">Número</label>
-                        <input type="text" class="form-control @error('numero') is-invalid @enderror" value="{{ old('numero') }}" required autocomplete="numero" id="numero" name="numero" placeholder="Digita aqui o teu numero">
 
-                        @error('numero')
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="bi_dire_passporte">Bi Dire Passporte</label>
+                        <input type="text" class="form-control @error('Bi_dire_passporte') is-invalid @enderror" value="{{ old('bi_dire_passporte') }}" required autocomplete="bi_dire_passporte" id="bi_dire_passporte" name="bi_dire_passporte" placeholder="">
+                        @error('bi_dire_passporte')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-                    </div> 
-                </div>
-                
-               
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="validade">Validade</label>
-                        <input type="date" class="form-control @error('validade') is-invalid @enderror" value="{{ old('validade') }}" required autocomplete="validade" id="numero" name="validade" placeholder="Digita aqui o teu validade">
+                    </div>
 
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="nuit">Nuit</label>
+                        <input type="number" class="form-control @error('nuit') is-invalid @enderror" value="{{ old('nuit') }}" required autocomplete="nuit" id="nuit" name="nuit" placeholder="">
+                        @error('nuit')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="nacionalidade">nacionalidade</label>
+                        <input type="text" class="form-control @error('nacionalidade') is-invalid @enderror" value="{{ old('nacionalidade') }}" required autocomplete="nacionalidade" id="nacionalidade" name="nacionalidade" placeholder="">
+                        @error('nacionalidade')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="residencia">Residencia</label>
+                        <input type="text" class="form-control @error('residencia') is-invalid @enderror" value="{{ old('residencia') }}" required autocomplete="residencia" id="residencia" name="residencia" placeholder="">
+                        @error('residencia')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="casa_nr">Casa Nr</label>
+                        <input type="text" class="form-control @error('casa_nr') is-invalid @enderror" value="{{ old('casa_nr') }}" required autocomplete="casa_nr" id="casa_nr" name="casa_nr" placeholder="">
+                        @error('casa_nr')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="endereco">Endereco</label>
+                        <input type="text" class="form-control @error('endereco') is-invalid @enderror" value="{{ old('endereco') }}" required autocomplete="endereco" id="endereco" name="endereco" placeholder="">
+                        @error('endereco')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="provincia_id">Provincia ID</label>
+                        <input type="number" class="form-control @error('provincia_id') is-invalid @enderror" value="{{ old('provincia_id') }}" required autocomplete="provincia_id" id="provincia_id" name="provincia_id" placeholder="">
+                        @error('provincia_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="telefone">Telefone</label>
+                        <input type="number" class="form-control @error('telefone') is-invalid @enderror" value="{{ old('telefone') }}" required autocomplete="telefone" id="telefone" name="telefone" placeholder="">
+                        @error('telefone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="naturalidade">Naturalidade</label>
+                        <input type="text" class="form-control @error('naturalidade') is-invalid @enderror" value="{{ old('naturalidade') }}" required autocomplete="naturalidade" id="naturalidade" name="naturalidade" placeholder="">
+                        @error('naturalidade')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="estado_civil_id">Estado Civil ID</label>
+                        <input type="number" class="form-control @error('estado_civil_id') is-invalid @enderror" value="{{ old('estado_civil_id') }}" required autocomplete="estado_civil_id" id="estado_civil_id" name="estado_civil_id" placeholder="">
+                        @error('estado_civil_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="validade">Validade</label>
+                        <input type="text" class="form-control @error('validade') is-invalid @enderror" value="{{ old('validade') }}" required autocomplete="validade" id="validade" name="validade" placeholder="">
                         @error('validade')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="marca">Marca</label>
-                        <input type="text" class="form-control @error('marca') is-invalid @enderror" value="{{ old('marca') }}" required autocomplete="marca" id="marca" name="marca" placeholder="numero">
-                        @error('marca')
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="profissao">Profissao</label>
+                        <input type="text" class="form-control @error('profissao') is-invalid @enderror" value="{{ old('profissao') }}" required autocomplete="profissao" id="profissao" name="profissao" placeholder="">
+                        @error('profissao')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="municoes">Municões</label>
-                        <input type="number" min="1" class="form-control @error('municoes') is-invalid @enderror" value="{{ old('municoes') }}" required autocomplete="municoes" id="municoes" name="municoes" placeholder="Digita aqui a municões">
-                        @error('municoes')
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="user_id">User ID</label>
+                        <input type="number" class="form-control @error('user_id') is-invalid @enderror" value="{{ old('user_id') }}" required autocomplete="user_id" id="user_id" name="user_id" placeholder="">
+                        @error('user_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                        <label for="data_created">Data Created</label>
+                        <input type="number" class="form-control @error('data_created') is-invalid @enderror" value="{{ old('data_created') }}" required autocomplete="data_created" id="data_created" name="data_created" placeholder="">
+                        @error('data_created')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                        <label for="estado">Estado</label>
+                        <input type="number" class="form-control @error('estado') is-invalid @enderror" value="{{ old('estado') }}" required autocomplete="estado" id="estado" name="estado" placeholder="">
+                        @error('estado')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                        <label for="tipoCliente_id">TipoCliente ID</label>
+                        <input type="number" class="form-control @error('tipoCliente_id') is-invalid @enderror" value="{{ old('tipoCliente_id') }}" required autocomplete="tipoCliente_id" id="tipoCliente_id" name="tipoCliente_id" placeholder="">
+                        @error('tipoCliente_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                        <label for="obs">Obs</label>
+                        <input type="text" class="form-control @error('obs') is-invalid @enderror" value="{{ old('obs') }}" required autocomplete="obs" id="obs" name="obs" placeholder="">
+                        @error('obs')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -83,131 +229,10 @@ $active = 2;
                     </div>
                 </div>
                 <div class="form-row">
-                    
-                    <div class="form-group col-md-3">
-                        <label for="calibre">Calibre</label>
-                        <input type="text" class="form-control @error('calibre') is-invalid @enderror" value="{{ old('calibre') }}" required autocomplete="morada" id="calibre" name="calibre" placeholder="Digita aqui a calibre">
-                        @error('calibre')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                     <div class="form-group col-md-3">
-                        <label for="carregamento">Carregamento</label>
-                        <input type="text" class="form-control @error('carregamento') is-invalid @enderror" value="{{ old('carregamento') }}" required autocomplete="carregamento" id="naturalidade" name="carregamento" placeholder="Digita aqui a carregamento">
-                        @error('carregamento')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                     <div class="form-group col-md-3">
-                        <label for="importacao">Oringem de importação</label>
-                        <input type="text" class="form-control @error('importacao') is-invalid @enderror" value="{{ old('importacao') }}" required autocomplete="importacao" id="importacao" name="importacao" placeholder="">
-                        @error('importacao')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                     <div class="form-group col-md-3">
-                        <label for="modelo">Modelo</label>
-                        <input type="text" class="form-control @error('modelo') is-invalid @enderror" value="{{ old('modelo') }}" required autocomplete="modelo" id="naturalidade" name="modelo" placeholder="Digita aqui o modelo">
-                        @error('modelo')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    
-                </div>
-                <div class="form-row">
-                     <div class="form-group col-md-3">
-                        <label for="classificacao">Classificação</label>
-                        <input type="text" class="form-control @error('Classificação') is-invalid @enderror" value="{{ old('classificacao') }}" required autocomplete="classificacao" id="classificacao" name="classificacao" placeholder="">
-                        @error('classificacao')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                     <div class="form-group col-md-2">
-                        <label for="tiros">Número de Tiros</label>
-                        <input type="number" min="1" class="form-control @error('tiros') is-invalid @enderror" value="{{ old('tiros') }}" required autocomplete="tiros" id="tiros" name="tiros" placeholder="">
-                        @error('tiros')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                     <div class="form-group col-md-2">
-                        <label for="percursao">Percussão</label>
-                        <input type="text" class="form-control @error('percursao') is-invalid @enderror" value="{{ old('percursao') }}" required autocomplete="percursao" id="percursao" name="percursao" placeholder="Digita aqui a percursao">
-                        @error('percursao')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                  
-                </div>
-                   <div class="form-row">
-                       <div class="form-group col-md-3">
-                        <label for="comprimentoCano">Comprimento do cano</label>
-                        <input type="text" class="form-control @error('comprimentoCano') is-invalid @enderror" value="{{ old('comprimentoCano') }}" required autocomplete="comprimentoCano" id="comprimentoCano" name="comprimentoCano" placeholder="">
-                        @error('comprimentoCano')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                     <div class="form-group col-md-3">
-                        <label for="mecanismo">Mecanismo</label>
-                        <input type="text" class="form-control @error('mecanismo') is-invalid @enderror" value="{{ old('mecanismo') }}" required autocomplete="mecanismo" id="mecanismo" name="mecanismo" placeholder="">
-                        @error('morada')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                    <div class="form-group ml-auto">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden></i> Adicionar</button>
                     </div>
                 </div>
-                 <div class="form-row">
-                     <div class="form-group col-md-3">
-                        <label for="categoria">Categoria</label>
-                         <select name="categoria" class="form-control" required>
-                            <option value="">Escolha Categoria</option>
-                            @foreach($categoria as $categoriaLinha)
-                            <option value="{{$categoriaLinha->id}}">{{$categoriaLinha->nome}}</option>
-                            @endforeach
-                        </select>
-                        @error('categoria')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                     <div class="form-group col-md-2">
-                        <label for="preco">Preço</label>
-                        <input type="number" step="0.5" min="1" class="form-control @error('preco') is-invalid @enderror" value="{{ old('preco') }}" required autocomplete="preco" id="preco" name="preco" placeholder="">
-                        @error('preco')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                      <div class="form-group col-md-2">
-                        <label for="quantidade_stoque">Quantidade Inicial</label>
-                        <input type="number" min="1" class="form-control @error('quantidade_stoque') is-invalid @enderror" value="{{ old('quantidade_stoque') }}" required autocomplete="quantidade_stoque" id="quantidade_stoque" name="quantidade_stoque" placeholder="">
-                        @error('quantidade_stoque')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    
-                </div>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden></i> Adicionar</button>
             </form>
         </div>
         <!-- /.card-body -->
